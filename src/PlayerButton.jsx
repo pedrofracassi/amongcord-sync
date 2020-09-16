@@ -24,9 +24,9 @@ const PlayerButtonWrapper = styled.button`
   border: none;
   outline: white;
   border-radius: 5px;
-  width: calc(50% - 5px);
   margin-bottom: 10px;
   height: 80px;
+  width: calc(50% - 5px);
 `
 
 export default function PlayerButton ({ player, loading, sendAliveUpdate }) {

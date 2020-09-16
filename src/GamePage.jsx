@@ -24,6 +24,10 @@ const FlexContainer = styled.div`
   justify-content: space-between;
 `
 
+const PlayerContainer = styled(FlexContainer)`
+  flex-wrap: wrap;
+`
+
 const TopBar = styled.div`
   align-items: center;
 `
@@ -42,11 +46,11 @@ function GamePage ({ gameState, sendStageUpdate, sendAliveUpdate, loading, recon
       </FlexContainer>
       <section>
         <h2>Players</h2>
-        <FlexContainer>
+        <PlayerContainer>
           {gameState.players.map(p => (
             <PlayerButton player={p} loading={loading} sendAliveUpdate={sendAliveUpdate} />
           ))}
-        </FlexContainer>
+        </PlayerContainer>
       </section>
     </Container>
   );
