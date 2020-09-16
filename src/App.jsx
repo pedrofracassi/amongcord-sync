@@ -5,28 +5,15 @@ import CodePage from './CodePage'
 
 import openSocket from 'socket.io-client'
 
-import { syncServerAddress } from './config.json'
-
 import NoSleep from 'nosleep.js';
 const noSleep = new NoSleep()
+noSleep.enable()
 
 function App () {
   const idFromPath = window.location.pathname.split('/').join('')
   const [ syncId, setSyncId ] = useState(idFromPath)
   
   const [connected, setConnected] = useState(false)
-  
-  const [noSleepEnabled, setNoSleepEnabled] = useState(false)
-
-  if (connected && !noSleepEnabled) {
-    noSleep.enable()
-    setNoSleepEnabled(true)
-  }
-
-  if (!connected && noSleepEnabled) {
-    noSleep.disable()
-    setNoSleepEnabled(false)
-  }
 
   const [reconnecting, setReconnecting] = useState(false)
 
@@ -58,7 +45,7 @@ function App () {
   }
 
   function connectToGame () {
-    const newSocket = openSocket(syncServerAddress)
+    const newSocket = openSocket(process.env.REACT_APP_SYNC_SERVER_ADDRESS || 'localhost:8081')
 
     newSocket.on('connect', () => {
       newSocket.emit('join', syncId)
@@ -77,7 +64,9 @@ function App () {
 
     newSocket.on('connect_error', () => { setConnected(false) })
     newSocket.on('connect_timeout', () => { setConnected(false) })
-    newSocket.on('disconnect', () => { setConnected(false) })
+    newSocket.on('disconnect', () => {
+      setConnected(false)
+    })
     newSocket.on('reconnecting', () => { setReconnecting(true) })
     newSocket.on('reconnect', () => { setReconnecting(false) })
     newSocket.on('reconnect_failed', () => {
