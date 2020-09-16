@@ -13,17 +13,15 @@ const TopIcon = styled.img`
 
 const FullButton = styled(Button)`
   width: 100%;
-  flex-grow: 2;
 `
 
 const HalfButton = styled(Button)`
-  flex: 1 1 0px;
+  width: calc(50% - 5px);
 `
 
 const FlexContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 `
 
 const TopBar = styled.div`
@@ -37,8 +35,8 @@ function GamePage ({ gameState, sendStageUpdate, sendAliveUpdate, loading, recon
         <TopIcon src='icon.png' alt='Amongcord Icon'/>
       </TopBar>
       <ConnectionStatus reconnecting={reconnecting} channelName={gameState.channel_name} />
+      <FullButton disabled={gameState.game_stage === 'lobby' || loading} onClick={() => { sendStageUpdate('lobby') }}>Lobby</FullButton><br/>
       <FlexContainer>
-        <FullButton disabled={gameState.game_stage === 'lobby' || loading} onClick={() => { sendStageUpdate('lobby') }}>Lobby</FullButton><br/>
         <HalfButton disabled={gameState.game_stage === 'tasks' || loading} onClick={() => { sendStageUpdate('tasks') }}>Tasks</HalfButton>
         <HalfButton disabled={gameState.game_stage === 'discussion' || loading} onClick={() => { sendStageUpdate('discussion') }}>Discussion</HalfButton>
       </FlexContainer>

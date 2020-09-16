@@ -24,7 +24,8 @@ const PlayerButtonWrapper = styled.button`
   border: none;
   outline: white;
   border-radius: 5px;
-  width: 50%;
+  width: calc(50% - 5px);
+  margin-bottom: 10px;
   height: 80px;
 `
 
