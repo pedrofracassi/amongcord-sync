@@ -15,6 +15,7 @@ const CodeInputWrapper = styled.input`
   text-align: center;
   margin-bottom: 10px;
   caret-color: transparent;
+  user-select: initial;
 
   &::placeholder {
     color: #D9D9D9;
