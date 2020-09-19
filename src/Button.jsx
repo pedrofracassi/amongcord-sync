@@ -9,7 +9,7 @@ export default styled.button`
   line-height: 27px;
   color: #ffffff;
   background-color: #505DD6;
-  border-radius: 5px;
+  border-radius: 25px;
   margin-bottom: 10px;
 
   &:hover {

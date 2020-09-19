@@ -19,7 +19,7 @@ function App () {
 
   const [socket, setSocket] = useState()
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const [gameState, setGameState] = useState({
     sync_id: '',
@@ -46,6 +46,8 @@ function App () {
 
   function connectToGame () {
     const newSocket = openSocket(process.env.REACT_APP_SYNC_SERVER_ADDRESS || 'localhost:8081')
+
+    setLoading(true)
 
     newSocket.on('connect', () => {
       newSocket.emit('join', syncId)
@@ -87,6 +89,7 @@ function App () {
     syncId={syncId}
     setSyncId={setSyncId}
     connectToGame={connectToGame}
+    loading={loading}
   />
 }
 
