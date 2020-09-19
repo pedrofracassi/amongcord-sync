@@ -5,6 +5,7 @@ import CodeInput from './CodeInput';
 import ConnectButton from './ConnectButton';
 import VerticalContainer from './VerticalContainer';
 import DiscordButton from './DiscordButton';
+import PatreonButton from './PatreonButton';
 
 function CodePage ({ syncId, setSyncId, connectToGame, loading }) {
   return (
@@ -13,7 +14,8 @@ function CodePage ({ syncId, setSyncId, connectToGame, loading }) {
       <div>
         <CodeInput syncId={syncId} setSyncId={setSyncId} />
         <ConnectButton loading={loading} syncId={syncId} connectToGame={connectToGame} />
-        <DiscordButton />
+        <DiscordButton/>
+        <PatreonButton/>
       </div>
     </VerticalContainer>
   )

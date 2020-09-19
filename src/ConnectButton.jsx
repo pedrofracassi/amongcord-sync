@@ -6,7 +6,6 @@ import styled from 'styled-components'
 
 const ConnectButtonWrapper = styled(Button)`
   width: 100%;
-  margin-top: 20px;
 `
 
 export default function ConnectButton ({ syncId, connectToGame, loading }) {
