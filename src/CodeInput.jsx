@@ -33,7 +33,10 @@ export default function CodeInput ({ syncId, setSyncId }) {
       placeholder="ABC123"
       value={syncId}
       maxLength={syncIdLength}
-      onInput={e => setSyncId(e.target.value.toUpperCase())}
+      onInput={e => {
+        if (e.target.value.length > syncIdLength) e.target.value = e.target.value.slice(0, syncIdLength)
+        setSyncId(e.target.value.toUpperCase())
+      }}
       autoComplete="off"
       autoCorrect="off"
       autoCapitalize="off"
