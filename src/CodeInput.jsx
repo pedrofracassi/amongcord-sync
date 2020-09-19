@@ -21,10 +21,6 @@ const CodeInputWrapper = styled.input`
     color: #D9D9D9;
   }
 
-  &:focus, &:active {
-    border: none;
-  }
-
   &:focus::placeholder {
     color: transparent;
   }

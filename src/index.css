@@ -12,3 +12,7 @@ body {
 * {
   user-select: none;
 }
+
+*,*:focus,*:hover{
+  outline:none;
+}
