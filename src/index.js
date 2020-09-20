@@ -8,7 +8,15 @@ import App from './App';
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [
-    new Integrations.BrowserTracing(),
+    new Integrations.BrowserTracing({
+      tracingOrigins: [ process.env.REACT_APP_SYNC_SERVER_ADDRESS ],
+      beforeNavigate: context => {
+        return {
+          ...context,
+          name: window.location.pathname.replace(/[A-Z0-9]{6}$/, '/'),
+        }
+      }
+    }),
   ],
   tracesSampleRate: 1.0,
 })
