@@ -1,0 +1,10 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+        "namespace": "android_app",
+        "package_name": "xyz.amongcord.sync.twa",
+        "sha256_cert_fingerprints": [
+        "DD:0B:FF:95:B3:2E:18:9D:D7:A7:12:5D:43:DE:AB:0B:DB:45:DD:5B:07:B8:98:EF:72:B8:46:EC:72:06:48:44"
+        ]
+    }
+}]
