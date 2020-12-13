@@ -5,6 +5,7 @@ import PlayerButton from './PlayerButton';
 import ConnectionStatus from './ConnectionStatus'
 import Button from './Button'
 import Container from './Container';
+import JoinTipCard from './JoinTipCard';
 
 const TopIcon = styled.img`
   height: 55px;
@@ -46,11 +47,15 @@ function GamePage ({ gameState, sendStageUpdate, sendAliveUpdate, loading, recon
       </FlexContainer>
       <section>
         <h2>Players</h2>
-        <PlayerContainer>
-          {gameState.players.map(p => (
-            <PlayerButton player={p} loading={loading} sendAliveUpdate={sendAliveUpdate} />
-          ))}
-        </PlayerContainer>
+        { gameState.players.length > 0 ? (
+          <PlayerContainer>
+            {gameState.players.map(p => (
+              <PlayerButton player={p} loading={loading} sendAliveUpdate={sendAliveUpdate} />
+            ))}
+          </PlayerContainer>
+        ) : (
+          <JoinTipCard />
+        ) }
       </section>
     </Container>
   );
