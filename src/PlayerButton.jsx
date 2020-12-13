@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Badge from './Badge'
 import PlayerIcon from './PlayerIcon'
 
 const backgroundColors = {
@@ -37,6 +38,7 @@ export default function PlayerButton ({ player, loading, sendAliveUpdate }) {
 
   return (
     <ColoredPlayerButton disabled={loading} onClick={() => { sendAliveUpdate(player.color, !player.alive) }}>
+      { player.badge ? <Badge type={player.badge}/> : null }
       <PlayerIcon player={player} />
       <div>{player.name}</div>
     </ColoredPlayerButton>

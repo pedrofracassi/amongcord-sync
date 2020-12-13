@@ -11,6 +11,7 @@ export default styled.button`
   background-color: #505DD6;
   border-radius: 25px;
   margin-bottom: 10px;
+  cursor: pointer;
 
   &:hover {
     background-color: #444FB6;
