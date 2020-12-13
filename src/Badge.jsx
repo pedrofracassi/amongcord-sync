@@ -16,7 +16,7 @@ const badges = {
     },
     subscriber: {
         icon: 'subscriber.svg',
-        background: '#000000'
+        background: '#9246FF'
     }
 }
 
