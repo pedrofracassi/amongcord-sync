@@ -45,7 +45,8 @@ function App () {
   }
 
   function connectToGame () {
-    const newSocket = openSocket(process.env.REACT_APP_SYNC_SERVER_ADDRESS || 'localhost:8081')
+    const url = new URL(window.location.href);
+    const newSocket = openSocket(url.searchParams.get('bot_url') || process.env.REACT_APP_SYNC_SERVER_ADDRESS || 'localhost:8081')
 
     setLoading(true)
 
